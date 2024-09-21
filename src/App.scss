@@ -1,0 +1,180 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f0f0f0;  // Light gray background for a soft look
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.drag-drop {
+  border: 2px dashed #aaa;
+  padding: 30px;
+  text-align: center;
+  background-color: #f9f9f9;
+  min-height: 200px;
+  width: 80%;
+  margin: 20px auto;  // Add margin for spacing
+  border-radius: 10px;  // Rounded corners for a softer look
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  // Subtle shadow for depth
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #e6e6e6;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);  // Enhanced shadow on hover
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 500;  // Slightly bolder text for emphasis
+  }
+
+  .image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+
+    .preview-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        border-color: #333;  // Border color change on hover
+      }
+    }
+  }
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: none;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  // Shadow for depth
+
+  &.show {
+    display: block;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 15px 20px;  // Add padding for better spacing
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #444;  // Slight background color change on hover
+      }
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: #fff;  // White background for content area
+  border-radius: 10px;  // Rounded corners
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  // Subtle shadow for depth
+
+  h1 {
+    font-size: 2rem;
+    color: #333;  // Darker text color for headings
+  }
+
+  section {
+    margin-bottom: 30px;
+
+    h2 {
+      margin-bottom: 10px;
+      color: #444;  // Slightly darker color for subheadings
+    }
+  }
+}
+
+.responsive-nav {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;  // Ensure the button is above other elements
+
+  .menu-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;  // Rounded corners for the button
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  // Subtle shadow for depth
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #444;  // Slightly lighter on hover
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: 1000;  // Ensure sidebar is above other content
+    background-color: #333;  // Ensure background is consistent
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  // Subtle shadow for depth
+
+  button {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;  // Rounded corners for the button
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #444;  // Slightly lighter on hover
+    }
+  }
+}
